@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Monitoramento integrado de eventos ambientais relevantes para o Brasil" />
+  <title>Observatório Brasil</title>
+  <link rel="preconnect" href="https://unpkg.com" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div>
+        <span class="eyebrow">MVP • DADOS PÚBLICOS</span>
+        <h1>Observatório Brasil</h1>
+        <p>Eventos ambientais relevantes reunidos em uma visão territorial.</p>
+      </div>
+      <button id="refresh" type="button">Atualizar dados</button>
+    </header>
+
+    <div class="notice">Plataforma experimental. Não substitui alertas oficiais da Defesa Civil ou dos órgãos responsáveis.</div>
+
+    <nav class="view-tabs" aria-label="Alternar visualização">
+      <button class="view-tab active" data-view="map-view" type="button">Visão de mapa</button>
+      <button class="view-tab" data-view="cards-view" type="button">Visão em cards</button>
+    </nav>
+
+    <section class="metrics" aria-label="Indicadores gerais">
+      <article><span>Eventos exibidos</span><strong id="count">—</strong></article>
+      <article><span>Maior magnitude</span><strong id="max-mag">—</strong></article>
+      <article><span>Última atualização</span><strong id="updated">—</strong></article>
+      <article><span>Fonte ativa</span><strong>USGS</strong></article>
+    </section>
+
+    <section id="map-view" class="view-panel active">
+      <section class="filters">
+        <label><input id="brazil-only" type="checkbox" checked /> Região do Brasil</label>
+        <label>Magnitude mínima
+          <select id="magnitude">
+            <option value="0">Todas</option>
+            <option value="2.5">2,5+</option>
+            <option value="4.5">4,5+</option>
+            <option value="6">6,0+</option>
+          </select>
+        </label>
+        <div class="legend"><i class="low"></i>Baixa <i class="moderate"></i>Moderada <i class="high"></i>Alta <i class="critical"></i>Crítica</div>
+      </section>
+      <div id="error" class="error" hidden></div>
+      <main class="map-layout">
+        <div id="map"></div>
+        <aside>
+          <div class="panel-title"><h2>Eventos recentes</h2><span id="side-count">0</span></div>
+          <div id="events" class="event-list"></div>
+        </aside>
+      </main>
+    </section>
+
+    <section id="cards-view" class="view-panel">
+      <div class="search-hero">
+        <span class="eyebrow">CONSULTA TERRITORIAL</span>
+        <h2>O que está acontecendo em uma localidade?</h2>
+        <p>Pesquise uma cidade, estado ou país para gerar um painel resumido dos eventos registrados.</p>
+        <form id="location-form" class="location-search" autocomplete="off">
+          <div class="search-field">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="location-query" type="search" placeholder="Ex.: Salvador, Bahia ou Brasil" aria-label="Pesquisar localidade" required />
+            <button id="search-location" type="submit">Pesquisar</button>
+          </div>
+          <div id="search-suggestions" class="search-suggestions" hidden></div>
+        </form>
+        <div class="quick-searches" aria-label="Buscas rápidas">
+          <span>Buscas rápidas:</span>
+          <button type="button" data-query="Salvador, Bahia">Salvador</button>
+          <button type="button" data-query="Bahia, Brasil">Bahia</button>
+          <button type="button" data-query="Brasil">Brasil</button>
+          <button type="button" data-query="América do Sul">América do Sul</button>
+        </div>
+      </div>
+
+      <div id="location-status" class="location-status">
+        Pesquise uma localidade para gerar os indicadores territoriais.
+      </div>
+
+      <section id="location-dashboard" class="location-dashboard" hidden>
+        <div class="location-heading">
+          <div>
+            <span class="eyebrow">LOCALIDADE SELECIONADA</span>
+            <h2 id="selected-location">—</h2>
+            <p id="selected-type">—</p>
+          </div>
+          <button id="show-on-map" class="secondary-button" type="button">Ver no mapa</button>
+        </div>
+
+        <div class="summary-grid">
+          <article class="summary-card featured">
+            <span>Eventos registrados</span>
+            <strong id="local-total">0</strong>
+            <small id="local-period">Nas últimas 24 horas</small>
+          </article>
+          <article class="summary-card">
+            <span>Maior magnitude</span>
+            <strong id="local-max-mag">—</strong>
+            <small id="local-max-place">Nenhum evento</small>
+          </article>
+          <article class="summary-card">
+            <span>Severidade predominante</span>
+            <strong id="local-main-severity">—</strong>
+            <small id="local-main-severity-detail">Sem ocorrências</small>
+          </article>
+          <article class="summary-card">
+            <span>Evento mais recente</span>
+            <strong id="local-latest-time">—</strong>
+            <small id="local-latest-place">Nenhum evento</small>
+          </article>
+          <article class="summary-card">
+            <span>Profundidade média</span>
+            <strong id="local-average-depth">—</strong>
+            <small>Eventos sísmicos selecionados</small>
+          </article>
+          <article class="summary-card">
+            <span>Índice de atenção</span>
+            <strong id="local-attention">Normal</strong>
+            <small id="local-attention-detail">Sem eventos relevantes</small>
+          </article>
+        </div>
+
+        <div class="cards-detail-grid">
+          <article class="detail-card">
+            <div class="panel-title"><h3>Distribuição por severidade</h3></div>
+            <div id="severity-bars" class="severity-bars"></div>
+          </article>
+          <article class="detail-card">
+            <div class="panel-title"><h3>Principais ocorrências</h3><span id="local-list-count">0</span></div>
+            <div id="local-events" class="event-list compact"></div>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <footer>Próximos conectores: INPE Queimadas, Cemaden e ANA. A visão em cards está preparada para consolidar todas as fontes.</footer>
+  </div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
