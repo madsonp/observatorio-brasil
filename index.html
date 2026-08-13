@@ -8,6 +8,28 @@
   <link rel="preconnect" href="https://unpkg.com" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .roni-panel { margin: 16px 0; padding: 16px; border: 1px solid #2c3a4f; border-radius: 12px; background: #101826; color: #e7edf5; }
+    .roni-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
+    .roni-header h2 { margin: 4px 0; font-size: 1.1rem; }
+    .roni-header p { margin: 0; font-size: 0.85rem; opacity: 0.8; max-width: 60ch; }
+    .roni-header a { color: #7fb7ff; font-size: 0.8rem; white-space: nowrap; text-decoration: none; }
+    .roni-header a:hover { text-decoration: underline; }
+    .roni-body { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 12px; align-items: center; }
+    .roni-status { display: flex; align-items: center; gap: 12px; }
+    .roni-badge { padding: 4px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; }
+    .roni-badge.nino { background: #5a1f1f; color: #ff9d9d; }
+    .roni-badge.nina { background: #1f2f5a; color: #9dbcff; }
+    .roni-badge.neutral { background: #2a2f3a; color: #cfd6e2; }
+    .roni-status strong { font-size: 1.4rem; display: block; }
+    .roni-status small { opacity: 0.7; }
+    .roni-trend { display: flex; flex-direction: column; gap: 6px; font-size: 0.8rem; }
+    .roni-trend-list { display: flex; gap: 8px; flex-wrap: wrap; }
+    .roni-trend-item { display: flex; flex-direction: column; align-items: center; padding: 4px 8px; border-radius: 8px; background: #1a2333; min-width: 56px; }
+    .roni-trend-item.nino strong { color: #ff9d9d; }
+    .roni-trend-item.nina strong { color: #9dbcff; }
+    .roni-updated { display: block; margin-top: 10px; opacity: 0.65; font-size: 0.75rem; }
+  </style>
 </head>
 <body>
   <div class="shell">
@@ -21,6 +43,32 @@
     </header>
 
     <div class="notice">Plataforma experimental. Não substitui alertas oficiais da Defesa Civil ou dos órgãos responsáveis.</div>
+
+    <section id="roni-panel" class="roni-panel" aria-label="Monitoramento do Pacífico – Índice RONI">
+      <div class="roni-header">
+        <div>
+          <span class="eyebrow">NOAA CPC • MONITORAMENTO DO PACÍFICO</span>
+          <h2>Índice RONI (Relative Oceanic Niño Index)</h2>
+          <p>Novo índice oficial adotado pela NOAA em fevereiro de 2026 para o monitoramento do ENSO (El Niño / La Niña), em substituição ao ONI tradicional.</p>
+        </div>
+        <a href="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/roni/" target="_blank" rel="noopener">Fonte: NOAA CPC ↗</a>
+      </div>
+      <div id="roni-error" class="error" hidden></div>
+      <div class="roni-body">
+        <div class="roni-status">
+          <span id="roni-phase-badge" class="roni-badge neutral">—</span>
+          <div>
+            <strong id="roni-value">—</strong>
+            <small id="roni-season">Carregando dados…</small>
+          </div>
+        </div>
+        <div class="roni-trend">
+          <span>Últimas estações (trimestres móveis)</span>
+          <div id="roni-trend-list" class="roni-trend-list"></div>
+        </div>
+      </div>
+      <small id="roni-updated" class="roni-updated"></small>
+    </section>
 
     <nav class="view-tabs" aria-label="Alternar visualização">
       <button class="view-tab active" data-view="map-view" type="button">Visão de mapa</button>
@@ -139,7 +187,7 @@
       </section>
     </section>
 
-    <footer>Próximos conectores: INPE Queimadas, Cemaden e ANA. A visão em cards está preparada para consolidar todas as fontes.</footer>
+    <footer>Fontes ativas: USGS (sismos) e NOAA CPC (índice RONI). Próximos conectores: INPE Queimadas, Cemaden e ANA. A visão em cards está preparada para consolidar todas as fontes.</footer>
   </div>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="app.js"></script>

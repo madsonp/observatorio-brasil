@@ -1,5 +1,7 @@
 const USGS_URL = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson';
 const NOMINATIM_URL = 'https://nominatim.openstreetmap.org/search';
+const RONI_DATA_URL = 'data/roni.json';
+const RONI_THRESHOLD = 0.5;
 
 const state = {
   features: [],
@@ -126,6 +128,60 @@ async function loadData() {
   } finally {
     el('refresh').disabled = false;
     el('refresh').textContent = 'Atualizar dados';
+  }
+}
+
+function classifyRoni(anomaly) {
+  if (anomaly >= RONI_THRESHOLD) return { key: 'nino', label: 'El Niño' };
+  if (anomaly <= -RONI_THRESHOLD) return { key: 'nina', label: 'La Niña' };
+  return { key: 'neutral', label: 'Neutro' };
+}
+
+async function loadRoni() {
+  const errorBox = el('roni-error');
+  errorBox.hidden = true;
+  try {
+    const response = await fetch(RONI_DATA_URL, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`Falha ao carregar dados RONI (${response.status})`);
+    const payload = await response.json();
+    const entries = payload.entries || [];
+
+    if (!entries.length) {
+      el('roni-value').textContent = '—';
+      el('roni-season').textContent = 'Aguardando primeira sincronização automática';
+      el('roni-phase-badge').textContent = '—';
+      el('roni-phase-badge').className = 'roni-badge neutral';
+      el('roni-trend-list').innerHTML = '';
+      el('roni-updated').textContent = '';
+      return;
+    }
+
+    const latest = entries[entries.length - 1];
+    const phase = classifyRoni(latest.anomaly);
+
+    el('roni-value').textContent = `${latest.anomaly > 0 ? '+' : ''}${latest.anomaly.toFixed(2)} °C`;
+    el('roni-season').textContent = `Trimestre ${latest.season}/${latest.year}`;
+
+    const badge = el('roni-phase-badge');
+    badge.textContent = phase.label;
+    badge.className = `roni-badge ${phase.key}`;
+
+    const recent = entries.slice(-6);
+    el('roni-trend-list').innerHTML = recent.map(entry => {
+      const p = classifyRoni(entry.anomaly);
+      return `
+        <div class="roni-trend-item ${p.key}">
+          <span>${entry.season}/${entry.year}</span>
+          <strong>${entry.anomaly.toFixed(2)}</strong>
+        </div>`;
+    }).join('');
+
+    el('roni-updated').textContent = payload.generatedAt
+      ? `Atualizado em ${formatDate(payload.generatedAt)} • Dados públicos da NOAA CPC`
+      : 'Dados públicos da NOAA CPC';
+  } catch (error) {
+    errorBox.hidden = false;
+    errorBox.textContent = `Não foi possível carregar o índice RONI: ${error.message}`;
   }
 }
 
@@ -264,4 +320,5 @@ document.querySelectorAll('[data-query]').forEach(button => {
 });
 
 loadData();
+loadRoni();
 setInterval(loadData, 5 * 60 * 1000);
