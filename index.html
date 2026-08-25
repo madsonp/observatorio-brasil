@@ -70,9 +70,9 @@
       <small id="roni-updated" class="roni-updated"></small>
     </section>
 
-    <nav class="view-tabs" aria-label="Alternar visualização">
-      <button class="view-tab active" data-view="map-view" type="button">Visão de mapa</button>
-      <button class="view-tab" data-view="cards-view" type="button">Visão em cards</button>
+    <nav class="view-tabs" role="tablist" aria-label="Alternar visualização">
+      <button class="view-tab active" data-view="map-view" type="button" role="tab" aria-controls="map-view" aria-selected="true">Visão de mapa</button>
+      <button class="view-tab" data-view="cards-view" type="button" role="tab" aria-controls="cards-view" aria-selected="false">Visão em cards</button>
     </nav>
 
     <section class="metrics" aria-label="Indicadores gerais">
@@ -95,7 +95,7 @@
         </label>
         <div class="legend"><i class="low"></i>Baixa <i class="moderate"></i>Moderada <i class="high"></i>Alta <i class="critical"></i>Crítica</div>
       </section>
-      <div id="error" class="error" hidden></div>
+      <div id="error" class="error" role="alert" aria-live="polite" hidden></div>
       <main class="map-layout">
         <div id="map"></div>
         <aside>
@@ -127,7 +127,7 @@
         </div>
       </div>
 
-      <div id="location-status" class="location-status">
+      <div id="location-status" class="location-status" aria-live="polite">
         Pesquise uma localidade para gerar os indicadores territoriais.
       </div>
 
@@ -190,6 +190,6 @@
     <footer>Fontes ativas: USGS (sismos) e NOAA CPC (índice RONI). Próximos conectores: INPE Queimadas, Cemaden e ANA. A visão em cards está preparada para consolidar todas as fontes.</footer>
   </div>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="app.js"></script>
+  <script src="app.js" defer></script>
 </body>
 </html>
