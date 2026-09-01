@@ -27,9 +27,13 @@ body {
 .shell {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 24px 20px 48px;
+  padding: 16px 16px 32px;
   display: grid;
   gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .shell { padding: 24px 20px 48px; }
 }
 
 header {
@@ -38,6 +42,12 @@ header {
   gap: 16px;
   align-items: center;
   justify-content: space-between;
+}
+
+header button { width: 100%; }
+
+@media (min-width: 480px) {
+  header button { width: auto; }
 }
 
 h1 { margin: 4px 0; font-size: 1.9rem; }
@@ -57,7 +67,7 @@ button {
   cursor: pointer;
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 9px 16px;
+  padding: 11px 16px;
   background: var(--accent);
   color: #fff;
 }
@@ -84,20 +94,32 @@ button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px s
 
 .metrics {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+@media (min-width: 640px) {
+  .metrics { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
 }
 
 .metrics article, .summary-card, .detail-card, .filters, .search-hero, .location-status, aside {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 14px;
+  padding: 12px;
 }
 
-.metrics article { display: grid; gap: 4px; }
+@media (min-width: 640px) {
+  .metrics article, .summary-card, .detail-card, .filters, .search-hero, .location-status, aside { padding: 14px; }
+}
+
+.metrics article { display: grid; gap: 4px; min-width: 0; }
 .metrics span, .summary-card span { color: var(--muted); font-size: 0.82rem; }
-.metrics strong { font-size: 1.5rem; }
+.metrics strong { font-size: 1.3rem; }
+
+@media (min-width: 640px) {
+  .metrics strong { font-size: 1.5rem; }
+}
 
 .view-panel { display: none; gap: 16px; }
 .view-panel.active { display: grid; }
@@ -120,7 +142,11 @@ select, input[type="search"] {
   padding: 7px 10px;
 }
 
-.legend { display: flex; align-items: center; gap: 8px; margin-left: auto; font-size: 0.85rem; color: var(--muted); }
+.legend { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--muted); }
+
+@media (min-width: 640px) {
+  .legend { margin-left: auto; }
+}
 .legend i, .severity-bars i { display: inline-block; border-radius: 50%; }
 .legend i { width: 11px; height: 11px; }
 
@@ -139,19 +165,31 @@ select, input[type="search"] {
 
 .map-layout {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  grid-template-columns: 1fr;
   gap: 16px;
 }
 
+@media (min-width: 900px) {
+  .map-layout { grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr); }
+}
+
 #map {
-  min-height: 520px;
+  min-height: 360px;
   height: 100%;
   border-radius: 12px;
   border: 1px solid var(--border);
   z-index: 0;
 }
 
-aside { display: grid; gap: 12px; align-content: start; max-height: 560px; overflow: hidden; }
+@media (min-width: 900px) {
+  #map { min-height: 520px; }
+}
+
+aside { display: grid; gap: 12px; align-content: start; max-height: none; overflow: hidden; }
+
+@media (min-width: 900px) {
+  aside { max-height: 560px; }
+}
 
 .panel-title { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .panel-title span { color: var(--muted); font-size: 0.85rem; }
@@ -197,6 +235,7 @@ aside { display: grid; gap: 12px; align-content: start; max-height: 560px; overf
   display: flex;
   align-items: center;
   gap: 8px;
+  min-width: 0;
   background: var(--surface-alt);
   border: 1px solid var(--border);
   border-radius: 10px;
@@ -205,6 +244,7 @@ aside { display: grid; gap: 12px; align-content: start; max-height: 560px; overf
 
 .search-field input {
   flex: 1;
+  min-width: 0;
   border: none;
   background: transparent;
   padding: 8px 0;
@@ -249,8 +289,8 @@ aside { display: grid; gap: 12px; align-content: start; max-height: 560px; overf
 
 footer { color: var(--muted); font-size: 0.82rem; text-align: center; }
 
-@media (max-width: 900px) {
-  .map-layout { grid-template-columns: 1fr; }
-  aside { max-height: none; }
-  #map { min-height: 380px; }
+.leaflet-control-zoom a {
+  width: 36px !important;
+  height: 36px !important;
+  line-height: 36px !important;
 }
