@@ -1,7 +1,7 @@
 {
   "source": "https://www.cpc.ncep.noaa.gov/data/indices/RONI.ascii.txt",
   "reference": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/roni/",
-  "generatedAt": "2026-09-03T13:02:46.093Z",
+  "generatedAt": "2026-09-04T13:02:24.234Z",
   "entries": [
     {
       "season": "DJF",
@@ -4591,7 +4591,12 @@
     {
       "season": "MJJ",
       "year": 2026,
-      "anomaly": 0.98
+      "anomaly": 0.97
+    },
+    {
+      "season": "JJA",
+      "year": 2026,
+      "anomaly": 1.36
     }
   ]
 }
