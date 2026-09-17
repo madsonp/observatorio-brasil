@@ -72,6 +72,48 @@
       <small id="roni-updated" class="roni-updated"></small>
     </section>
 
+    <section class="ocean-panel" aria-labelledby="ocean-title">
+      <div class="ocean-heading">
+        <div>
+          <span class="eyebrow">MONITORAMENTO COSTEIRO</span>
+          <h2 id="ocean-title">Nível do mar e tsunami</h2>
+        </div>
+      </div>
+      <details class="ocean-more">
+        <summary><span class="more-closed">+ infos</span><span class="more-open">− fechar</span></summary>
+        <div class="ocean-more-content">
+          <p>Leituras operacionais de estações brasileiras da IOC/UNESCO. Valores brutos, relativos ao referencial de cada sensor.</p>
+          <a href="https://www.ioc-sealevelmonitoring.org/" target="_blank" rel="noopener">Fonte: IOC/UNESCO ↗</a>
+          <div id="sea-level-error" class="error" role="alert" aria-live="polite" hidden></div>
+          <div class="ocean-summary">
+            <article>
+              <span>Estações com dados recentes</span>
+              <strong id="sea-active-count">—</strong>
+              <small>Leitura recebida nas últimas 3 horas</small>
+            </article>
+            <article>
+              <span>Leitura mais recente</span>
+              <strong id="sea-latest-age">—</strong>
+              <small id="sea-latest-station">Consultando estações…</small>
+            </article>
+            <article class="tsunami-status">
+              <span>Alerta oficial de tsunami</span>
+              <strong id="personal-alert-status">Desativado</strong>
+              <small id="personal-alert-detail">Receba uma notificação quando surgir um comunicado CAP oficial.</small>
+              <button id="enable-tsunami-alerts" class="secondary-button" type="button">Ativar alerta pessoal</button>
+              <a href="https://tsunami.ioc.unesco.org/en/memeber-states/br" target="_blank" rel="noopener">Cemaden/Cenad — ponto focal do Brasil ↗</a>
+            </article>
+          </div>
+          <div class="sea-stations-heading">
+            <h3>Estações mais recentes</h3>
+            <small id="sea-updated"></small>
+          </div>
+          <div id="sea-stations" class="sea-stations" aria-live="polite"></div>
+          <p class="ocean-disclaimer">Dados operacionais sem garantia de controle de qualidade em tempo real. Não use este painel como sistema autônomo de alerta ou para decisões de evacuação.</p>
+        </div>
+      </details>
+    </section>
+
     <nav class="view-tabs" role="tablist" aria-label="Alternar visualização">
       <button class="view-tab active" data-view="map-view" type="button" role="tab" aria-controls="map-view" aria-selected="true">Visão de mapa</button>
       <button class="view-tab" data-view="cards-view" type="button" role="tab" aria-controls="cards-view" aria-selected="false">Visão em cards</button>
@@ -86,7 +128,10 @@
 
     <section id="map-view" class="view-panel active">
       <section class="filters">
-        <label><input id="brazil-only" type="checkbox" checked /> Região do Brasil</label>
+        <label><input id="brazil-only" type="checkbox" checked /> Região do Brasil (últimos 7 dias)</label>
+        <label><input id="show-quakes" type="checkbox" checked /> Terremotos</label>
+        <label><input id="show-sea-level" type="checkbox" checked /> Marés <span id="map-sea-count">0</span></label>
+        <label><input id="show-alerts" type="checkbox" checked /> Alertas oficiais <span id="map-alert-count">0</span></label>
         <label>Magnitude mínima
           <select id="magnitude">
             <option value="0">Todas</option>
@@ -101,7 +146,7 @@
       <main class="map-layout">
         <div id="map"></div>
         <aside>
-          <div class="panel-title"><h2>Eventos recentes</h2><span id="side-count">0</span></div>
+          <div class="panel-title"><h2 id="events-title">Eventos recentes · últimos 7 dias</h2><span id="side-count">0</span></div>
           <div id="events" class="event-list"></div>
         </aside>
       </main>
@@ -147,7 +192,7 @@
           <article class="summary-card featured">
             <span>Eventos registrados</span>
             <strong id="local-total">0</strong>
-            <small id="local-period">Nas últimas 24 horas</small>
+            <small id="local-period">Nos últimos 7 dias</small>
           </article>
           <article class="summary-card">
             <span>Maior magnitude</span>
@@ -189,7 +234,7 @@
       </section>
     </section>
 
-    <footer>Fontes ativas: USGS (sismos) e NOAA CPC (índice RONI). Próximos conectores: INPE Queimadas, Cemaden e ANA. A visão em cards está preparada para consolidar todas as fontes.</footer>
+    <footer>Observatório Brasil v0.2.0 · Fontes: USGS, IOC/UNESCO, Cemaden, IBGE, CAP e NOAA CPC.</footer>
   </div>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="app.js" defer></script>

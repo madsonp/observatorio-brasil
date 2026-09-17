@@ -1,4 +1,4 @@
-name: Atualizar índice RONI
+name: Atualizar dados ambientais
 
 on:
   schedule:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  update-roni:
+  update-data:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -23,14 +23,20 @@ jobs:
       - name: Buscar e converter dados RONI (NOAA CPC)
         run: node scripts/update-roni.mjs
 
+      - name: Atualizar snapshot de nível do mar (IOC/UNESCO)
+        run: node scripts/update-sea-level.mjs
+
+      - name: Atualizar previsão de riscos geo-hidrológicos (Cemaden)
+        run: node scripts/update-cemaden-risk.mjs
+
       - name: Commitar alterações
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/roni.json
+          git add data/roni.json data/sea-level.json data/cemaden-risk.json data/cemaden-risk-history.json
           if git diff --cached --quiet; then
-            echo "Nenhuma mudança nos dados do RONI."
+            echo "Nenhuma mudança nos dados ambientais."
           else
-            git commit -m "Atualiza dados do índice RONI (NOAA)"
+            git commit -m "Atualiza dados ambientais"
             git push
           fi

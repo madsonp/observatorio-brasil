@@ -222,11 +222,163 @@ aside { display: grid; gap: 12px; align-content: start; max-height: none; overfl
 
 .empty-state { color: var(--muted); font-size: 0.88rem; padding: 12px 0; }
 
+.ocean-panel {
+  margin: 18px 0;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.ocean-heading, .sea-stations-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.ocean-panel { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+.ocean-more { margin-left: auto; }
+.ocean-more summary {
+  display: inline-flex;
+  cursor: pointer;
+  list-style: none;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 999px;
+  padding: 7px 13px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  user-select: none;
+}
+.ocean-more summary::-webkit-details-marker { display: none; }
+.ocean-more .more-open { display: none; }
+.ocean-more[open] { width: 100%; margin-left: 0; }
+.ocean-more[open] summary { float: right; }
+.ocean-more[open] .more-closed { display: none; }
+.ocean-more[open] .more-open { display: inline; }
+.ocean-more-content { clear: both; padding-top: 10px; }
+.ocean-more-content > p { color: var(--muted); margin-bottom: 4px; }
+.ocean-more-content > a { color: var(--primary); font-size: 0.84rem; }
+
+.ocean-heading p, .ocean-disclaimer, .sea-stations-heading small { color: var(--muted); }
+.ocean-heading a, .tsunami-status a { color: var(--primary); font-size: 0.84rem; }
+
+.ocean-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.ocean-summary article, .sea-station {
+  padding: 14px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.ocean-summary span, .ocean-summary small, .sea-station span, .sea-station small { display: block; color: var(--muted); }
+.ocean-summary strong { display: block; margin: 5px 0; font-size: 1.25rem; }
+.tsunami-status { display: grid; align-content: start; gap: 6px; }
+.tsunami-status .secondary-button { justify-self: start; margin: 4px 0; }
+
+.sea-stations {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.sea-station strong { display: block; margin: 4px 0; }
+.sea-station .sea-value { color: var(--primary); font-size: 1.15rem; }
+.ocean-disclaimer { margin: 14px 0 0; font-size: 0.78rem; }
+
+@media (max-width: 900px) {
+  .ocean-summary { grid-template-columns: 1fr; }
+  .sea-stations { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px) {
+  .ocean-heading, .sea-stations-heading { display: block; }
+  .sea-stations { grid-template-columns: 1fr; }
+}
+
 .quake-marker { stroke: #0b1220; }
 .quake-marker.low { fill: var(--low); }
 .quake-marker.moderate { fill: var(--moderate); }
 .quake-marker.high { fill: var(--high); }
 .quake-marker.critical { fill: var(--critical); }
+.sea-level-marker { fill: #06b6d4; stroke: #083344; stroke-width: 2; }
+.official-alert { fill-opacity: 0.2; stroke-width: 3; }
+.filters label span { color: var(--primary); font-weight: 700; }
+.leaflet-popup-content-wrapper { max-width: calc(100vw - 48px); }
+.leaflet-popup-content {
+  width: min(300px, calc(100vw - 88px)) !important;
+  max-height: min(320px, calc(100vh - 110px));
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 14px 18px;
+}
+.sea-popup { min-width: 0; line-height: 1.35; overflow-wrap: anywhere; }
+.sea-popup-title { display: block; margin-bottom: 7px; font-size: 0.95rem; }
+.sea-reading { display: flex; align-items: baseline; gap: 6px; }
+.sea-reading > span { font-size: 1.15rem; }
+.sea-reading small, .sea-meta, .tide-details small { color: var(--muted); }
+.sea-meta { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 4px 0; font-size: 0.78rem; }
+.sea-popup a { display: inline-block; margin-top: 3px; font-size: 0.78rem; }
+.tide-details {
+  box-sizing: border-box;
+  height: 126px;
+  margin-top: 6px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  line-height: 1.4;
+}
+.tide-details hr { border: 0; border-top: 1px solid var(--border); margin: 8px 0; }
+.tide-status { display: flex; align-items: center; gap: 7px; margin-bottom: 5px; }
+.tide-status > span { color: var(--primary); font-size: 1.35rem; font-weight: 800; }
+.tide-grid { display: grid; grid-template-columns: 18px 1fr; gap: 2px 5px; margin-bottom: 4px; }
+.tide-grid > span:nth-child(odd) { color: var(--primary); font-weight: 800; text-align: center; }
+
+.risk-map-control, .risk-legend {
+  background: rgba(255, 255, 255, 0.96);
+  color: #1f2937;
+  border: 1px solid #94a3b8;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.2);
+  padding: 10px;
+}
+.risk-map-control { width: min(270px, calc(100vw - 100px)); }
+.risk-control-heading { display: grid; gap: 1px; }
+.risk-control-heading span { color: #475569; font-size: 0.64rem; font-weight: 800; letter-spacing: 0.08em; }
+.risk-control-heading strong { font-size: 0.9rem; }
+.risk-control-heading small { color: #64748b; font-size: 0.72rem; }
+.risk-mode-switch { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin: 8px 0; }
+.risk-mode-switch button { border: 1px solid #cbd5e1; border-radius: 6px; background: #f8fafc; padding: 6px; font-size: 0.72rem; cursor: pointer; }
+.risk-mode-switch button.active { border-color: #075985; background: #e0f2fe; color: #075985; font-weight: 700; }
+.risk-history-label { display: block; color: #64748b; font-size: 0.65rem; font-weight: 700; margin-bottom: 2px; }
+.risk-history-select { width: 100%; border: 1px solid #cbd5e1; border-radius: 6px; background: #fff; padding: 5px 7px; margin-bottom: 7px; font-size: 0.75rem; }
+.risk-map-summary { display: grid; padding: 7px; border-left: 5px solid #fde300; background: #fffceb; }
+.risk-map-summary strong { font-size: 0.85rem; }
+.risk-map-summary small { color: #64748b; font-size: 0.7rem; }
+.risk-map-control > a { display: inline-block; margin-top: 7px; color: #0369a1; font-size: 0.72rem; }
+.risk-legend { display: grid; gap: 4px; margin-bottom: 22px !important; font-size: 0.68rem; }
+.risk-legend strong { margin-bottom: 2px; }
+.risk-legend span { display: flex; align-items: center; gap: 6px; }
+.risk-legend i { width: 14px; height: 14px; border: 1px solid #64748b; }
+.risk-legend .very-high { background: #ed0000; }
+.risk-legend .high { background: #ff8100; }
+.risk-legend .moderate { background: #fde300; }
+.risk-legend .low { background: #fff; }
+
+@media (max-width: 620px) {
+  .risk-map-control { width: min(220px, calc(100vw - 90px)); padding: 8px; }
+  .risk-control-heading span, .risk-control-heading small, .risk-map-control > a { display: none; }
+  .risk-mode-switch { margin-bottom: 0; }
+  .risk-map-summary { margin-top: 6px; }
+  .risk-legend { padding: 7px; }
+}
 
 .search-hero { display: grid; gap: 10px; }
 .location-search { display: grid; gap: 8px; position: relative; }
