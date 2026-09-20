@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-09-19T13:02:27.276Z",
+  "updatedAt": "2026-09-20T13:02:22.723Z",
   "records": [
+    {
+      "source": "https://www.gov.br/cemaden/pt-br/assuntos/riscos-geo-hidrologicos/20-09-2026-previsao-de-riscos-geo-hidrologicos-1",
+      "generatedAt": "2026-09-20T13:02:22.714Z",
+      "validFor": "2026-09-20",
+      "summaries": {
+        "hydrological": "Risco Hidrológico ● Região Sudeste: São Paulo Considera-se MODERADA a possibilidade de ocorrência de eventos hidrológicos na Região Geográfica Intermediária de São Paulo, devido a previsão de chuva que pode ocorrer na forma de pancadas de intensidade moderada a forte, podendo gerar acumulados que resultem no extravasamento de córregos, enxurradas e alagamentos urbanos, devido ao extravasamento da capacidade dos sistemas de drenagem, principalmente em áreas densamente ocupadas e com alta impermeabilização do solo (Figura 1). ● Região Sul: Rio grande do Sul Considera-se MODERADA a possibilidade de ocorrência de eventos hidrológicos nas Regiões Geográficas Intermediárias de Pelotas, Uruguaiana e Porto Alegre, devido a previsão de chuva que pode ocorrer na forma de pancadas de intensidade moderada a forte, podendo gerar acumulados que resultem no extravasamento de córregos, enxurradas e alagamentos urbanos (Figura 1). Figura 1 - Possibilidade de ocorrência de eventos hidrológicos em ao menos um município das Regiões Geográficas Intermediárias indicadas. Este mapa é elaborado por uma equipe multidisciplinar, levando em consideração os cenários de riscos hidrológicos atuais somados à previsão de chuva. ",
+        "geological": "Risco Geológico Região Sul: Santa Catarina e Paraná Considera-se MODERADA a possibilidade de ocorrência de eventos de movimento de massa nas Regiões Geográficas Intermediárias de Florianópolis, Blumenau e Joinville/SC e em Curitiba/PR ("
+      },
+      "featureCollection": {
+        "type": "FeatureCollection",
+        "features": []
+      }
+    },
     {
       "source": "https://www.gov.br/cemaden/pt-br/assuntos/riscos-geo-hidrologicos/19-09-2026-previsao-de-riscos-geo-hidrologicos-1",
       "generatedAt": "2026-09-19T13:02:27.266Z",
