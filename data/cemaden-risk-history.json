@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-09-24T13:02:57.417Z",
+  "updatedAt": "2026-09-25T13:03:25.845Z",
   "records": [
+    {
+      "source": "https://www.gov.br/cemaden/pt-br/assuntos/riscos-geo-hidrologicos/25-09-2026-previsao-de-riscos-geo-hidrologicos-1",
+      "generatedAt": "2026-09-25T13:03:25.837Z",
+      "validFor": "2026-09-25",
+      "summaries": {
+        "hydrological": "Risco Hidrológico Região Sul : Rio Grande do Sul Considera-se MODERADA a possibilidade de ocorrência de eventos hidrológicos na Região Geográfica Intermediária de Porto Alegre (RS), devido à propagação de ondas de cheia nas bacias dos rios Jacuí, Sinos e Guaíba, decorrentes dos acumulados observados em suas áreas de contribuição nas últimas 120 horas, que podem resultar no incremento dos níveis fluviométricos observados (Figura 1). Figura 1 - Possibilidade de ocorrência de eventos hidrológicos em ao menos um município das Regiões Geográficas Intermediárias indicadas. Este mapa é elaborado por uma equipe multidisciplinar, levando em consideração os cenários de riscos hidrológicos atuais somados à previsão de chuva. ",
+        "geological": "Risco Geológico Considerando a previsão meteorológica e o acumulado dos últimos dias, não há cenário de risco significativo relacionado a eventos de movimentos de massa ("
+      },
+      "featureCollection": {
+        "type": "FeatureCollection",
+        "features": []
+      }
+    },
     {
       "source": "https://www.gov.br/cemaden/pt-br/assuntos/riscos-geo-hidrologicos/24-09-2026-previsao-de-riscos-geo-hidrologicos-1",
       "generatedAt": "2026-09-24T13:02:57.405Z",
