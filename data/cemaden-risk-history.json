@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-09-25T13:03:25.845Z",
+  "updatedAt": "2026-09-26T13:02:10.022Z",
   "records": [
+    {
+      "source": "https://www.gov.br/cemaden/pt-br/assuntos/riscos-geo-hidrologicos/26-09-2026-previsao-de-riscos-geo-hidrologicos-1",
+      "generatedAt": "2026-09-26T13:02:09.957Z",
+      "validFor": "2026-09-26",
+      "summaries": {
+        "hydrological": "Risco Hidrológico Considerando a previsão meteorológica, níveis de rios e umidade do solo dos últimos dias, não há cenário de risco significativo relacionado a eventos hidrológicos (Figura 1). Figura 1 - Possibilidade de ocorrência de eventos hidrológicos em ao menos um município das Regiões Geográficas Intermediárias indicadas. Este mapa é elaborado por uma equipe multidisciplinar, levando em consideração os cenários de riscos hidrológicos atuais somados à previsão de chuva. ",
+        "geological": "Risco Geológico Considerando a previsão meteorológica e o acumulado dos últimos dias, não há cenário de risco significativo relacionado a eventos de movimentos de massa ("
+      },
+      "featureCollection": {
+        "type": "FeatureCollection",
+        "features": []
+      }
+    },
     {
       "source": "https://www.gov.br/cemaden/pt-br/assuntos/riscos-geo-hidrologicos/25-09-2026-previsao-de-riscos-geo-hidrologicos-1",
       "generatedAt": "2026-09-25T13:03:25.837Z",
