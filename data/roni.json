@@ -1,7 +1,7 @@
 {
   "source": "https://www.cpc.ncep.noaa.gov/data/indices/RONI.ascii.txt",
   "reference": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/roni/",
-  "generatedAt": "2026-09-28T13:05:26.294Z",
+  "generatedAt": "2026-09-29T13:06:35.319Z",
   "entries": [
     {
       "season": "DJF",
