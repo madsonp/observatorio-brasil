@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-10-11T13:04:06.598Z",
+  "updatedAt": "2026-10-12T13:24:26.445Z",
   "records": [
+    {
+      "source": "https://www.gov.br/cemaden/pt-br/assuntos/riscos-geo-hidrologicos/12-10-2026-previsao-de-riscos-geo-hidrologicos-1",
+      "generatedAt": "2026-10-12T13:24:26.433Z",
+      "validFor": "2026-10-12",
+      "summaries": {
+        "hydrological": "Risco Hidrológico Região Sul : Rio Grande do Sul, Santa Catarina e Paraná Considera-se ALTA a possibilidade de continuidade dos eventos hidrológicos na Região Geográfica Intermediária de Uruguaiana (RS), devido à propagação da onda de cheia na bacia do rio Uruguai, que poderá manter ou ocasionar novas inundações no rio principal e seus afluentes (Figura 1). Considera-se MODERADA a possibilidade de eventos hidrológicos nas Regiões Geográficas Intermediárias de Porto Alegre, Passo Fundo e Caxias do Sul (RS); Chapecó (SC); Cascavel, Curitiba e Guarapuava (PR), devido à previsão de chuva ao longo do dia, com possibilidade de pancadas com intensidade moderada a forte, que podem resultar em altos acumulados, que somados aos acumulados dos últimos dias, poderão ocasionar enxurradas, alagamentos e extravasamento de córregos, além de inundações em pequenas bacias hidrográficas (Figura 1). Região Sudeste : Rio de Janeiro, Minas Gerais e São Paulo Considera-se MODERADA a possibilidade de eventos hidrológicos nas Regiões Geográficas Intermediárias de Rio de Janeiro, Volta Redonda - Barra Mansa e Petrópolis (RJ), Juiz de Fora (MG), São Paulo, São José dos Campos e Campinas (SP), devido à previsão de chuva, com possibilidade de pancadas com intensidade moderada a forte, principalmente a partir da tarde, que podem resultar em altos acumulados, que somados aos acumulados dos últimos dias, poderão ocasionar enxurradas, alagamentos e extravasamento de córregos, além de inundações em pequenas bacias hidrográficas (Figura 1). Figura 1 - Possibilidade de ocorrência de eventos hidrológicos em ao menos um município das Regiões Geográficas Intermediárias indicadas. Este mapa é elaborado por uma equipe multidisciplinar, levando em consideração os cenários de riscos hidrológicos atuais somados à previsão de chuva. ",
+        "geological": "Risco Geológico Região Sul : Santa Catarina e Paraná Considera-se MODERADA a possibilidade de ocorrência de eventos de movimentos de massa na Região Geográfica Intermediária de Chapecó/SC e Cascavel/PR ("
+      },
+      "featureCollection": {
+        "type": "FeatureCollection",
+        "features": []
+      }
+    },
     {
       "source": "https://www.gov.br/cemaden/pt-br/assuntos/riscos-geo-hidrologicos/11-10-2026-previsao-de-riscos-geo-hidrologicos-1",
       "generatedAt": "2026-10-11T13:04:06.588Z",
