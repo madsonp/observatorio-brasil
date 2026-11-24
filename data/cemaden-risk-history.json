@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-11-23T13:01:45.551Z",
+  "updatedAt": "2026-11-24T13:02:13.957Z",
   "records": [
+    {
+      "source": "https://www.gov.br/cemaden/pt-br/assuntos/riscos-geo-hidrologicos/24-11-2026-previsao-de-riscos-geo-hidrologicos-1",
+      "generatedAt": "2026-11-24T13:02:13.943Z",
+      "validFor": "2026-11-24",
+      "summaries": {
+        "hydrological": "Risco Hidrológico Região Sul: Rio Grande do Sul e Santa Catarina Considera-se MODERADA a possibilidade de ocorrência de eventos hidrológicos nas Regiões Geográficas Intermediárias de Passo Fundo, Ijuí, Caxias do Sul, (RS), Chapecó e Criciúma (SC), devido aos acumulados prévios e à previsão de chuva ao longo do dia, que pode ocorrer na forma pancadas de intensidade moderada a forte, podendo resultar em altos acumulados de precipitação, principalmente na porção norte do Rio Grande do Sul, favorecendo a ocorrência de enxurradas urbanas, alagamentos em áreas rebaixadas e extravasamentos de córregos e inundações em bacias hidrográficas de pequeno porte. Região Sudeste: São Paulo, Rio de Janeiro, Minas Gerais e Espírito Santo Considera-se MODERADA a possibilidade de ocorrência de eventos hidrológicos nas Regiões Geográficas Intermediárias de São Paulo, São José dos Campos (SP), Pouso Alegre, Juiz de Fora, Belo Horizonte (MG ) , Volta Redonda - Barra Mansa, Rio de Janeiro, Petrópolis (RJ) e Vitória (ES), devido à previsão de pancadas de chuva rápidas e isoladas, que podem ter intensidade moderada a forte, favorecendo a ocorrência de enxurradas urbanas, alagamentos em áreas rebaixadas e extravasamentos pontuais de córregos em locais com baixa eficiência do sistema de drenagem. Figura 1 - Possibilidade de ocorrência de eventos hidrológicos em ao menos um município das Regiões Geográficas Intermediárias indicadas. Este mapa é elaborado por uma equipe multidisciplinar, levando em consideração os cenários de riscos hidrológicos atuais somados à previsão de chuva. ",
+        "geological": "Risco Geológico Região Sudeste: São Paulo, Rio de Janeiro, Minas Gerais e Espírito Santo Considera-se MODERADA a possibilidade de ocorrência de eventos de movimentos de massa nas Regiões Geográficas Intermediárias de São Paulo, São José dos Campos e Campinas (SP); Campos dos Goytacazes, Volta Redonda e Petrópolis (RJ); Juiz de Fora, Belo Horizonte, Ipatinga e Governador Valadares (MG); e Cachoeiro do Itapemirim, Vitória, Colatina e São Mateus (ES) ("
+      },
+      "featureCollection": {
+        "type": "FeatureCollection",
+        "features": []
+      }
+    },
     {
       "source": "https://www.gov.br/cemaden/pt-br/assuntos/riscos-geo-hidrologicos/23-11-2026-previsao-de-riscos-geo-hidrologicos-1",
       "generatedAt": "2026-11-23T13:01:45.538Z",
