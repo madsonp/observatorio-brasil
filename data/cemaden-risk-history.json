@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-11-26T13:01:43.340Z",
+  "updatedAt": "2026-11-27T13:01:48.049Z",
   "records": [
+    {
+      "source": "https://www.gov.br/cemaden/pt-br/assuntos/riscos-geo-hidrologicos/27-11-2026-previsao-de-riscos-geo-hidrologicos-1",
+      "generatedAt": "2026-11-27T13:01:48.014Z",
+      "validFor": "2026-11-27",
+      "summaries": {
+        "hydrological": "Risco Hidrológico Região Sul: Santa Catarina, Rio Grande do Sul e Paraná Considera-se MODERADA a possibilidade de ocorrência de eventos hidrológicos na Regiões Geográficas Intermediárias de Chapecó (SC), Passo Fundo, Ijuí e Uruguaiana (RS), devido à previsão de chuva, que pode resultar em altos acumulados, somada aos acumulados prévios e à propagação de onda de cheia na bacia do Rio Uruguai e afluentes (Figura 1) . Também é MODERADA a possibilidade de ocorrência de eventos hidrológicos na Região Geográfica Intermediária de Cascavel (PR), devido à previsão de chuva, que pode ocorrer na forma de pancadas com intensidade moderada a forte, somada aos acumulados prévios, favorecendo a ocorrência de enxurradas urbanas, alagamentos em áreas rebaixadas e extravasamentos de córregos e rios em bacias de pequeno porte (Figura 1) . Região Sudeste: Rio de Janeiro, Minas Gerais e Espírito Santo Considera-se ALTA a possibilidade de ocorrência de eventos hidrológicos nas Regiões Geográficas Intermediárias de Cachoeiro de Itapemirim e Vitória (ES), devido à previsão de chuva, que podem ter intensidade moderada a forte, podendo resultar em altos acumulados de precipitação, somada aos acumulados observados nos últimos dias, favorecendo a ocorrência de enxurradas urbanas, alagamentos em áreas rebaixadas e extravasamentos de córregos e rios em bacias de pequeno porte. Destaca-se o litoral, onde o coeficiente de marés alto, além de eventos de ressaca costeira, dificultam o escoamento, agravando o cenário de risco hidrológico (Figura 1) . Considera-se MODERADA a possibilidade de ocorrência de eventos hidrológicos nas Regiões Geográficas Intermediárias de Campos dos Goytacazes (RJ), Linhares e Colatina (ES), Juiz de Fora e Belo Horizonte (MG) devido à previsão de pancadas de chuva rápidas e isoladas, que podem ter intensidade moderada, favorecendo a ocorrência de enxurradas urbanas, alagamentos em áreas rebaixadas e extravasamentos pontuais de córregos em locais com baixa eficiência do sistema de drenagem. Atenção para o litoral, devido ao coeficiente de marés alto, além de eventos de ressaca costeira, que dificultam o escoamento, agravando o cenário de risco hidrológico (Figura 1) . Figura 1 - Possibilidade de ocorrência de eventos hidrológicos em ao menos um município das Regiões Geográficas Intermediárias indicadas. Este mapa é elaborado por uma equipe multidisciplinar, levando em consideração os cenários de riscos hidrológicos atuais somados à previsão de chuva. ",
+        "geological": "Risco Geológico Região Sudeste: Rio de Janeiro, Minas Gerais e Espírito Santo Considera-se ALTA a possibilidade de ocorrência de eventos de movimentos de massa nas Região Geográfica Intermediária de Vitória (ES) ("
+      },
+      "featureCollection": {
+        "type": "FeatureCollection",
+        "features": []
+      }
+    },
     {
       "source": "https://www.gov.br/cemaden/pt-br/assuntos/riscos-geo-hidrologicos/26-11-2026-previsao-de-riscos-geo-hidrologicos-1",
       "generatedAt": "2026-11-26T13:01:43.326Z",
